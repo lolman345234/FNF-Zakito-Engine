@@ -42,7 +42,7 @@ class OutdatedState extends MusicBeatState
 		checker.updateHitbox();
 
 		warnText = new FlxText(0, 10, FlxG.width,
-			"HEY! Your JS Engine is outdated!\n"
+			"This current version of Zakito Engine is outdated.\n"
 			+ 'v' + MainMenuState.psychEngineJSVersion + ' < v' + TitleState.updateVersion + '\n'
 			,32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -52,33 +52,14 @@ class OutdatedState extends MusicBeatState
 		changelog = new FlxText(100, warnText.y + warnText.height + 20, 1080, currChanges, 16);
 		changelog.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(changelog);
-
-		updateText = new FlxText(0, 10, FlxG.width,
-			"Press SPACE to view the full changelog, ENTER to update or ESCAPE to ignore this!"
-			,24);
-		updateText.setFormat("VCR OSD Mono", 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			updateText.y = 710 - updateText.height;
-			updateText.x = 10;
-		add(updateText);
 	}
 
 	override function update(elapsed:Float)
 	{
 		checker.x += 0.45 / (ClientPrefs.framerate / 60);
 		checker.y += (0.16 / (ClientPrefs.framerate / 60));
-		if(!leftState) {
-			if (FlxG.keys.justPressed.ENTER) {
-				leftState = true;
-				#if windows
-				FlxG.switchState(UpdateState.new);
-				#else
-				CoolUtil.browserLoad("https://github.com/JordanSantiagoYT/FNF-JS-Engine/releases/latest");
-				#end
 			}
-			if (FlxG.keys.justPressed.SPACE) {
-				CoolUtil.browserLoad("https://github.com/JordanSantiagoYT/FNF-JS-Engine/releases/latest");
-			}
-			else if(controls.BACK) {
+			else if(FlxG.keys.justPressed.ENTER) {
 				leftState = true;
 			}
 
