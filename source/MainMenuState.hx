@@ -157,7 +157,7 @@ class MainMenuState extends MusicBeatState
 
     FlxG.camera.follow(camFollow, null, 1);
 
-    var JSVersion:FlxText = new FlxText(12, FlxG.height - 64, 0, "JS Engine v" + psychEngineJSVersion, 12);
+    var JSVersion:FlxText = new FlxText(12, FlxG.height - 64, 0, "Zakito Engine v" + psychEngineJSVersion, 12);
     JSVersion.scrollFactor.set();
     JSVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     add(JSVersion);
@@ -165,10 +165,7 @@ class MainMenuState extends MusicBeatState
     PsychVersion.scrollFactor.set();
     PsychVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     add(PsychVersion);
-    var FNFVersion:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
-    FNFVersion.scrollFactor.set();
-    FNFVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    add(FNFVersion);
+ 
 
     tipBackground = new FlxSprite();
     tipBackground.scrollFactor.set();
